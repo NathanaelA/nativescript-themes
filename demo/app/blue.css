@@ -1,0 +1,28 @@
+.title {
+    font-size: 30;
+    horizontal-align: center;
+    margin: 20;
+}
+
+button {
+    font-size: 42;
+    horizontal-align: center;
+}
+
+.message {
+    font-size: 20;
+    color: lightgoldenrodyellow;
+    horizontal-align: center;
+    margin: 0 20;
+    text-align: center;
+}
+
+Page {
+    background-color: blue;
+    color: antiquewhite;
+}
+
+ActionBar{
+    color: white;
+    background-color: darkblue;
+}

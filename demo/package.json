@@ -1,0 +1,9 @@
+{
+	"nativescript": {
+		"id": "org.nativescript.demo"
+	},
+	"dependencies": {
+		"nativescript-themes": "file:..",
+		"tns-core-modules": "1.7.1"
+	}
+}
