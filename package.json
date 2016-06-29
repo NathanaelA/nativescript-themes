@@ -1,6 +1,6 @@
 {
   "name": "nativescript-themes",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A NativeScript plugin to deal with Themes in the Declarative UI ",
   "main": "themes.js",
   "nativescript": {
@@ -14,7 +14,7 @@
     "url": "https://github.com/nathanaela/nativescript-themes.git"
   },
   "keywords": [
-    "NativeScript", "themes", "ui", "landscape", "ios", "android"
+    "NativeScript", "themes", "ui", "landscape", "ios", "android", "colors"
   ],
   "author": {
     "name": "Nathanael Anderson",

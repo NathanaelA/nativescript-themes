@@ -3,3 +3,6 @@ demo/
 .gitignore
 .idea/
 docs/
+.npmignore
+*.tgz
+*.tar
