@@ -2,6 +2,6 @@
   <StackLayout>
     <Label text="Tap the button" class="title"/>
     <Button text="TAP" tap="{{ onTap }}" />
-    <Label text="{{ message }}" class="message" textWrap="true"/>
+    <Label text="{{ message }}" class="message" textWrap="true" tap="secondpage"/>
   </StackLayout>
 </Page>

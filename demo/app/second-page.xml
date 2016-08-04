@@ -1,0 +1,6 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" navigatedTo="navigatedTo" loaded="loaded">
+    <StackLayout>
+        <Label text="Our second page" class="title"/>
+        <Button text="Gray" tap="click"/>
+    </StackLayout>
+</Page>

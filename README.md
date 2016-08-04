@@ -32,9 +32,19 @@ To use the module you just `require()` it:
 var themes = require( "nativescript-themes" );
 ```
 
+## Setup in App
+Modify your startup app.js
+
+```js
+var themes = require('nativescript-themes');
+themes.applyTheme(themes.getAppliedTheme('red-theme.css'));
+```
+This will automatically apply the "red-theme.css" theme if no other theme has ever been chosen as the default theme. 
+
+
 
 ## You ask, how exactly does this help?
-This allows you to dynamically theme an application just by calling the theme system.
+This allows you to dynamically theme an application just by calling the theme system.  Your master app.css file is applied first, then the theme file and finally your page.css
 
 red-theme.css
 ```css
@@ -70,7 +80,13 @@ This allows you to apply a specific theme file globally so all pages get it.
 This returns the last theme applied; if no theme has been applied it will use the default_theme.
 ```js
   var themes = require('nativescript-themes');
-
+  var currentTheme = themes.getAppliedTheme('red-theme.css');
+  if (currentTheme === 'red-theme.css') {
+      console.log("We are using the default red-theme!")
+  } else {
+      console.log("We are using", currentTheme);
+  }
+```
 
 
 
