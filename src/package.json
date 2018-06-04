@@ -5,12 +5,12 @@
   "main": "themes.js",
   "nativescript": {
 	"platforms": {
-		"android": "3.0.0",
-		"ios": "3.0.0"
+		"android": "4.0.0",
+		"ios": "4.0.0"
 	},
 	"plugin": {
 	  "pan": "true",
-	  "core3": "true",
+	  "core3": "false",
 	  "core4": "true",
 	  "category": "Interface"
 	}

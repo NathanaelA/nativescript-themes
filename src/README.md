@@ -103,7 +103,8 @@ This returns the last theme applied; if no theme has been applied it will use th
   }
 ```
 
+## Tutorials
 
+Need some extra help getting started?  Check out these tutorials for dealing with NativeScript UI themes in an iOS and Android application.
 
-
-
+* [Changing the UI Theme in a NativeScript Angular Application](https://www.thepolyglotdeveloper.com/2016/11/changing-a-nativescript-css-skin-at-runtime/)
