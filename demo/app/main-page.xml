@@ -1,7 +1,13 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
-  <StackLayout>
-    <Label text="Tap the button" class="title"/>
-    <Button text="TAP" tap="{{ onTap }}" />
-    <Label text="{{ message }}" class="message" textWrap="true" tap="secondpage"/>
-  </StackLayout>
+    <Page.actionBar>
+        <ActionBar title="NativeScript Themes Example"/>
+    </Page.actionBar>
+
+    <GridLayout rows="*,auto,*,auto">
+        <Label row="0" text="Tap the button" class="title"/>
+        <Button row="1" text="TAP" tap="{{ onTap }}" />
+        <Label row="2" text="{{ message }}" class="message" textWrap="true" tap="secondpage"/>
+
+    <HtmlView row="3" colSpan="2"  html="&lt;a href='http://www.master-technology.com'&gt;(c)2015-2018, Master Technology&lt;/a&gt;" class="copyright"/>
+    </GridLayout>
 </Page>

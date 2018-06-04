@@ -1,9 +1,23 @@
 {
+	"description": "NativeScript Application",
+	"license": "SEE LICENSE IN <your-license-filename>",
+	"readme": "NativeScript Application",
+	"repository": "<fill-your-repository-here>",
 	"nativescript": {
-		"id": "org.nativescript.demo"
+		"id": "org.nativescript.demo",
+		"tns-android": {
+			"version": "4.1.1"
+		}
 	},
 	"dependencies": {
-		"nativescript-themes": "file:..",
-		"tns-core-modules": "1.7.1"
+		"nativescript-theme-core": "~1.0.4",
+		"nativescript-themes": "file:..\\src",
+		"tns-core-modules": "~4.1.0"
+	},
+	"devDependencies": {
+		"babel-traverse": "6.4.5",
+		"babel-types": "6.4.5",
+		"babylon": "6.4.5",
+		"lazy": "1.0.11"
 	}
 }
