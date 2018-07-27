@@ -5,7 +5,7 @@
  * I do contract work in most languages, so let me solve your problems!
  *
  * Any questions please feel free to email me or put a issue up on the github repo
- * Version 2.0.0                                      Nathan@master-technology.com
+ * Version 3.0.0                                      Nathan@master-technology.com
  *********************************************************************************/
 "use strict";
 
@@ -17,11 +17,11 @@ var fsa = require("file-system/file-system-access").FileSystemAccess;
 var frameCommon = require('ui/frame/frame-common');
 var appSettings = require('application-settings');
 var application = require('application');
-//var styleScope = require('ui/styling/style-scope');
+var StyleScope = require('ui/styling/style-scope');
 
 // This allows some basic CSS to propogate properly from the frame; but not the localStyles CSS.  See bug NativeScript#5911 & #5912
 if (!frameCommon.FrameBase.prototype.eachChild) {
-	frameCommon.FrameBase.prototype.eachChild = frameCommon.FrameBase.prototype.eachChildView;
+//	frameCommon.FrameBase.prototype.eachChild = frameCommon.FrameBase.prototype.eachChildView;
 }
 
 var Themes = function() {
@@ -40,15 +40,12 @@ Themes.prototype.getAppliedTheme = function(defaultTheme) {
     return defaultTheme;
 };
 
-
-
 Themes.prototype.applyTheme = function(cssFile, options) {
     if (!cssFile) { console.log("No Theme css file provided");  return; }
-    if (!application.hasLaunched() || !frameCommon.topmost()) {
+    if ( !application.hasLaunched() ) {
 
     	var self = this;
     	var applyTheme =  function() {
-    		console.log("Delayed Load");
     		internalLoadCss(cssFile, self._curAppPath);
 			if (!(options && options.noSave)) {
 				appSettings.setString('__NS.themes', cssFile);
@@ -60,23 +57,21 @@ Themes.prototype.applyTheme = function(cssFile, options) {
 		 return;
 	}
 
-	console.log("Immediate Load");
     internalLoadCss(cssFile, this._curAppPath);
     if (!(options && options.noSave)) {
         appSettings.setString('__NS.themes', cssFile);
     }
 };
 
+
+var _priorTheme = "!!NO_THEME_LOADED!!";
 /**
  * Set the  theme .css file
  * @param cssFile - css file to load
  * @param path - application path
  */
 function internalLoadCss(cssFile, path) {
-
-	// If a Frame hasn't been loaded yet, delay some more...
-	var frame = frameCommon.topmost();
-	if (!frame) {
+	if (!frameCommon.topmost()) {
 		setTimeout(function() {
 			internalLoadCss(cssFile, path);
 		}, 50);
@@ -96,83 +91,56 @@ function internalLoadCss(cssFile, path) {
         cssFileName = fs.path.join(path, cssFileName);
     }
 
-    // TODO: Check and run a test to see if we need to look at the entire frame stack and adjust each frame's CSS...
-	// Notes: We can tie this to the currentPage and everything looks good for that page...  But we need this globally.
-    //
-	// One possible solution; We might be able to manually load the app.css file ourselves and merge it with the new theme css file.
-	//    However, this will leave the side effect of loosing any other appended css that they might have added outside of this plugin...
-	//
+	// Remove old Selectors
+	 var changed = StyleScope.removeTaggedAdditonalCSS(_priorTheme);
 
-    var changed = false, preLoaded = false;
-    var styleScope = frame._styleScope;
-    var curSelectors = styleScope._localCssSelectors;
-	// Clear the old Selectors out
-    for (var i=0;i<curSelectors.length;i++) {
-    	// Check to see if we have already loaded a theme, if so we need to remove it
-        if (curSelectors[i]._themeFile ) {
-        	// Is that a different theme?
-            if (curSelectors[i]._themeFile && curSelectors[i]._themeFile !== cssFileName) {
-                changed = true;
-                curSelectors.splice(i, 1);
-                i--;
-            } else {
-            	// Nope, it is a rule from this theme...
-                preLoaded = true;
-                break;
-            }
-        }
-    }
-
-	var cssLength = styleScope._css.length;
-    if (!preLoaded) {
-    	// Load the new Selectors
-        if (cssFileName && FSA.fileExists(cssFileName)) {
+	// Load the new Selectors
+    if (cssFileName && FSA.fileExists(cssFileName)) {
             var file = fs.File.fromPath(cssFileName);
             var textCSS = file.readTextSync();
-			var cnt = curSelectors.length;
             if (textCSS) {
-				styleScope.appendCss("/* +NS-THEME-MT */ "+ textCSS +" /* -NS-THEME-MT */", cssFileName);
-            }
+				// Add new Selectors
+				StyleScope.addTaggedAdditionalCSS(textCSS, cssFileName);
 
-            var newCnt = curSelectors.length;
-            // If we fail to load the file, then we will treat it as if we had already loaded it
-            if (cnt === newCnt) {
-                preLoaded = true;
-            } else {
-            	for (var i=cnt;i<newCnt;i++) {
-            		curSelectors[i]._themeFile = cssFileName;
-				}
+				changed = true;
+				_priorTheme = cssFileName;
+
 			}
-        }
-
     }
 
-    // If anything changed; then we need to trigger a change...
-    if (changed || !preLoaded) {
 
-    	/* First delete the old text version of the css to keep everything in sync */
-    	var css = styleScope._css;
-    	var start = css.indexOf("/* +NS-THEME-MT */");
-    	var end = css.indexOf("/* -NS-THEME-MT */", start);
-    	// Make sure we aren't deleting our newly added css  ;-)
-    	if (start > -1 && end > -1 && start < cssLength) {
-			if (start > 0 && end < css.length) {
-				css = css.substring(0, start) + css.substring(end+18, css.length);
-			} else if (start > 0) {
-				css = css.substring(0, start);
-			} else {
-				css = css.substring(end+18, css.length);
+	if (changed) {
+		var frame = frameCommon.topmost();
+		if (frame) {
+			if (frame._styleScope) {
+				frame._styleScope._localCssSelectorVersion++;
+				frame._styleScope.ensureSelectors();
+				frame._onCssStateChange();
 			}
-			styleScope._css = css;
+			var backStack = frame.backStack;
+			if (backStack) {
+				for (var i=0;i<backStack.length;i++) {
+					var page = backStack[i].resolvedPage;
+					if (page) {
+						//page._onCssStateChange();
+						// I suspect this method is probably safer; but the above actually does work...
+						page.on("navigatingTo", updatedCSSState);
+					}
+				}
+			}
+
+			var page = frame.currentPage;
+			if (page) {
+				page._onCssStateChange();
+			}
 		}
-
-		// Trigger a Re-sync
-		styleScope._localCssSelectorVersion++;
-		styleScope.ensureSelectors();
-		frame._onCssStateChange();
-
 	}
+}
 
+function updatedCSSState(args) {
+	var page = args.object;
+	page._onCssStateChange();
+	page.off("navigatingTo", updatedCSSState);
 }
 
 // Export the theme system

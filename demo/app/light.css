@@ -5,7 +5,7 @@
 }
 
 button {
-    font-size: 42;
+    font-size: 32;
     horizontal-align: center;
 }
 
@@ -20,6 +20,11 @@ button {
 Page {
     background-color: white;
     color: black;
+}
+
+ActionBar {
+    color: white;
+    background-color: purple;
 }
 
 .light {

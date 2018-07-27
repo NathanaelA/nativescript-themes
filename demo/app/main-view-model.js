@@ -5,6 +5,17 @@ var themes = require('nativescript-themes');
 function getMessage(counter) {
 	var themeId = counter % 3;
 	if (themeId  === 0) {
+		return "Current theme is: Light";
+	} else if (themeId === 1) {
+		return "Current theme is: Dark";
+	} else {
+		return "Current theme is Blue";
+	}
+
+}
+function getNextTheme(counter) {
+	var themeId = counter % 3;
+	if (themeId  === 0) {
 		return "Click for Dark theme";
 	} else if (themeId === 1) {
 		return "Click for Blue theme";
@@ -14,6 +25,7 @@ function getMessage(counter) {
 
 }
 
+
 function createViewModel() {
 	var viewModel = new Observable();
 	viewModel.curTheme = 0;
@@ -22,12 +34,14 @@ function createViewModel() {
 	else if (curThemeName === 'blue.css') { viewModel.curTheme += 2; }
 
 	viewModel.message = getMessage(viewModel.curTheme);
+	viewModel.nextTheme = getNextTheme(viewModel.curTheme);
 
 
 
 	viewModel.onTap = function() {
 		this.curTheme++;
 		this.set("message", getMessage(this.curTheme));
+		this.set("nextTheme", getNextTheme(this.curTheme));
 
 		var themeId = this.curTheme % 3;
 

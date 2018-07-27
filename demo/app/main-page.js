@@ -44,5 +44,6 @@ exports.onNavigatingTo = onNavigatingTo;
 
 exports.secondpage = function() {
 	var frame = require('ui/frame');
+	//frame.topmost().currentPage.addCss("Button { background-color: green; color: purple; }");
 	frame.topmost().navigate('second-page');
 };

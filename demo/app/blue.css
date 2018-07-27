@@ -5,7 +5,7 @@
 }
 
 button {
-    font-size: 42;
+    font-size: 26;
     horizontal-align: center;
 }
 
@@ -22,9 +22,9 @@ Page {
     color: antiquewhite;
 }
 
-ActionBar{
+ActionBar {
     color: white;
-    background-color: darkblue;
+    background-color: blue;
 }
 
 .blue {
