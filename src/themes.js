@@ -69,6 +69,10 @@ Themes.prototype.applyTheme = function(cssFile, options) {
     }
 };
 
+Themes.prototype.applyThemeCss = function(textCss, cssFileName) {
+    internalLoadCss(textCss, cssFileName);
+};
+
 function internalLoadCssFile(cssFile, path) {
     var FSA = new fsa();
     var cssFileName = cssFile;
