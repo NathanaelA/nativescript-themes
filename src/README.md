@@ -18,8 +18,8 @@ tns plugin add nativescript-themes
 
 Please note this plugin is currently broken do to some new issues in the actual NativeScript core modules. Until they fix either:
 
-- [https://github.com/NativeScript/NativeScript/issues/5912](https://github.com/NativeScript/NativeScript/issues/5912)
-- [https://github.com/NativeScript/NativeScript/issues/5911](https://github.com/NativeScript/NativeScript/issues/5911)
+-   [https://github.com/NativeScript/NativeScript/issues/5912](https://github.com/NativeScript/NativeScript/issues/5912)
+-   [https://github.com/NativeScript/NativeScript/issues/5911](https://github.com/NativeScript/NativeScript/issues/5911)
 
 This plugin will be unable to work.... Please up vote those issues if you want to see this plugin work again...
 
@@ -40,7 +40,7 @@ I also do contract work; so if you have a module you want built for NativeScript
 To use the module you just `require()` it:
 
 ```js
-var themes = require('nativescript-themes')
+var themes = require('nativescript-themes');
 ```
 
 ## Setup in App
@@ -48,8 +48,8 @@ var themes = require('nativescript-themes')
 Modify your startup app.js
 
 ```js
-var themes = require('nativescript-themes')
-themes.applyTheme(themes.getAppliedTheme('red-theme.css'))
+var themes = require('nativescript-themes');
+themes.applyTheme(themes.getAppliedTheme('red-theme.css'));
 ```
 
 This will automatically apply the "red-theme.css" theme if no other theme has ever been chosen as the default theme.
@@ -57,9 +57,9 @@ This will automatically apply the "red-theme.css" theme if no other theme has ev
 You can also load a theme bundled by webpack using `applyThemeCss`:
 
 ```js
-var themes = require('nativescript-themes')
-var cssText = require('~/assets/themes/dark.scss')
-themes.applyThemeCss(cssText, 'dark.scss')
+var themes = require('nativescript-themes');
+var cssText = require('~/assets/themes/dark.scss');
+themes.applyThemeCss(cssText, 'dark.scss');
 ```
 
 ## You ask, how exactly does this help?
@@ -70,7 +70,7 @@ red-theme.css
 
 ```css
 button {
-  background-color: red;
+    background-color: red;
 }
 ```
 
@@ -78,7 +78,7 @@ green-theme.css
 
 ```css
 button {
-  background-color: green;
+    background-color: green;
 }
 ```
 
@@ -95,8 +95,8 @@ This allows you to apply a specific theme file globally so all pages get it.
 **options.noSave** = _true_, this will cause it not to save this info for the getAppliedTheme to retrieve, this would typically used if you needed temporarily apply a theme.
 
 ```js
-var themes = require('nativescript-themes')
-themes.applyTheme('red-theme.css')
+var themes = require('nativescript-themes');
+themes.applyTheme('red-theme.css');
 ```
 
 ### theme.getAppliedTheme(<default_theme>);
@@ -104,12 +104,12 @@ themes.applyTheme('red-theme.css')
 This returns the last theme applied; if no theme has been applied it will use the default_theme.
 
 ```js
-var themes = require('nativescript-themes')
-var currentTheme = themes.getAppliedTheme('red-theme.css')
+var themes = require('nativescript-themes');
+var currentTheme = themes.getAppliedTheme('red-theme.css');
 if (currentTheme === 'red-theme.css') {
-  console.log('We are using the default red-theme!')
+    console.log('We are using the default red-theme!');
 } else {
-  console.log('We are using', currentTheme)
+    console.log('We are using', currentTheme);
 }
 ```
 
@@ -118,12 +118,12 @@ if (currentTheme === 'red-theme.css') {
 This function receives a string containing CSS and applies it. The `filename` is only for reference (no file will be actually loaded).
 
 ```js
-var themes = require('nativescript-themes')
-themes.applyThemeCss('page {background-color: black;}', 'default-theme.css')
+var themes = require('nativescript-themes');
+themes.applyThemeCss('page {background-color: black;}', 'default-theme.css');
 ```
 
 ## Tutorials
 
 Need some extra help getting started? Check out these tutorials for dealing with NativeScript UI themes in an iOS and Android application.
 
-- [Changing the UI Theme in a NativeScript Angular Application](https://www.thepolyglotdeveloper.com/2016/11/changing-a-nativescript-css-skin-at-runtime/)
+-   [Changing the UI Theme in a NativeScript Angular Application](https://www.thepolyglotdeveloper.com/2016/11/changing-a-nativescript-css-skin-at-runtime/)
