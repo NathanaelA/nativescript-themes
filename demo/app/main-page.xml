@@ -9,6 +9,6 @@
         <Label row="2" text=""/>
         <Label row="3" text="{{ message }}" class="message" textWrap="true" tap="secondpage"/>
 
-    <HtmlView row="4" colSpan="2"  html="&lt;a href='http://www.master-technology.com'&gt;(c)2015-2018, Master Technology&lt;/a&gt;" class="copyright"/>
+        <HtmlView row="4" colSpan="2" html="&lt;a href='http://www.master-technology.com'&gt;(c)2015-2018, Master Technology&lt;/a&gt;" class="copyright"/>
     </GridLayout>
 </Page>

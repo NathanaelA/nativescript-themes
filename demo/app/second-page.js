@@ -1,18 +1,11 @@
-
 var themes = require('nativescript-themes');
 
 exports.click = function() {
-    themes.applyTheme('dark.css');
+	themes.applyTheme('dark.css');
 };
 
-exports.loaded = function() {
+exports.loaded = function() {};
 
-};
+exports.navigatedTo = function() {};
 
-exports.navigatedTo = function() {
-
-};
-
-exports.navigatingTo = function() {
-
-};
+exports.navigatingTo = function() {};
