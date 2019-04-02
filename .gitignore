@@ -3,3 +3,7 @@
 /demo/platforms/
 *.tgz
 *.tar
+node_modules
+hooks
+platforms
+*.DS_Store 
