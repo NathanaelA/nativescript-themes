@@ -1,32 +1,32 @@
-﻿.title {
-    font-size: 30;
-    horizontal-align: center;
-    margin: 20;
+.title {
+	font-size: 30;
+	horizontal-align: center;
+	margin: 20;
 }
 
 button {
-    font-size: 38;
-    horizontal-align: center;
+	font-size: 38;
+	horizontal-align: center;
 }
 
 .message {
-    font-size: 20;
-    color: lightgoldenrodyellow;
-    horizontal-align: center;
-    margin: 0 20;
-    text-align: center;
+	font-size: 20;
+	color: lightgoldenrodyellow;
+	horizontal-align: center;
+	margin: 0 20;
+	text-align: center;
 }
 
 Page {
-    background-color: #284848;
-    color: antiquewhite;
+	background-color: #284848;
+	color: antiquewhite;
 }
 
-ActionBar{
-    color: brown;
-    background-color: black;
+ActionBar {
+	color: brown;
+	background-color: black;
 }
 
 .dark {
-    color: black;
+	color: black;
 }
