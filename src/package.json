@@ -1,38 +1,57 @@
 {
-  "name": "nativescript-themes",
-  "version": "2.0.0",
-  "description": "A NativeScript plugin to deal with Themes in the Declarative UI ",
-  "main": "themes.js",
-  "nativescript": {
-	"platforms": {
-		"android": "4.2.0",
-		"ios": "4.2.0"
+	"name": "nativescript-themes",
+	"version": "2.0.0",
+	"description": "A NativeScript plugin to deal with Themes in the Declarative UI.",
+	"main": "themes.js",
+	"nativescript": {
+		"platforms": {
+			"android": "4.2.0",
+			"ios": "4.2.0"
+		},
+		"plugin": {
+			"pan": "true",
+			"core3": "false",
+			"core4": "true",
+			"category": "Interface"
+		}
 	},
-	"plugin": {
-	  "pan": "true",
-	  "core3": "false",
-	  "core4": "true",
-	  "category": "Interface"
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/nathanaela/nativescript-themes.git"
+	},
+	"keywords": [
+		"NativeScript",
+		"themes",
+		"ui",
+		"landscape",
+		"ios",
+		"android",
+		"colors"
+	],
+	"author": {
+		"name": "Nathanael Anderson",
+		"email": "nathan@master-technology.com"
+	},
+	"contributors": [
+		{
+			"email": "bradwaynemartin@gmail.com",
+			"url": "https://github.com/bradmartin",
+			"name": "Brad Martin"
+		}
+	],
+	"license": {
+		"type": "MIT",
+		"url": "https://github.com/nathanaela/nativescript-themes/blob/master/LICENSE"
+	},
+	"bugs": {
+		"url": "https://github.com/nathanaela/nativescript-themes/issues"
+	},
+	"homepage": "https://github.com/nathanaela/nativescript-themes",
+	"readmeFilename": "README.md",
+	"devDependencies": {
+		"prettier": "~1.16.4",
+		"tns-core-modules": "~5.3.1",
+		"tns-platform-declarations": "~5.3.1",
+		"typescript": "~3.1.6"
 	}
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/nathanaela/nativescript-themes.git"
-  },
-  "keywords": [
-    "NativeScript", "themes", "ui", "landscape", "ios", "android", "colors"
-  ],
-  "author": {
-    "name": "Nathanael Anderson",
-    "email": "nathan@master-technology.com"
-  },
-  "license": {
-    "type": "MIT",
-    "url": "https://github.com/nathanaela/nativescript-themes/blob/master/LICENSE"
-  },
-  "bugs": {
-    "url": "https://github.com/nathanaela/nativescript-themes/issues"
-  },
-  "homepage": "https://github.com/nathanaela/nativescript-themes",
-  "readmeFilename": "README.md"
 }
