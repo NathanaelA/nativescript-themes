@@ -110,7 +110,7 @@ function internalLoadCss(textCss, cssFileName) {
     }
 
     // Remove old Selectors
-    var changed = StyleScope.removeTaggedAdditonalCSS(_priorTheme);
+    var changed = StyleScope.removeTaggedAdditionalCSS(_priorTheme);
 
     if (textCSS) {
         // Add new Selectors

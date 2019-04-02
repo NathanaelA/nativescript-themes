@@ -1,12 +1,12 @@
 {
-  "name": "nativescript-themes",
+  "name": "nativescript-themes-scss",
   "version": "2.0.0",
   "description": "A NativeScript plugin to deal with Themes in the Declarative UI ",
   "main": "themes.js",
   "nativescript": {
 	"platforms": {
-		"android": "4.2.0",
-		"ios": "4.2.0"
+		"android": "4.0.0",
+		"ios": "4.0.0"
 	},
 	"plugin": {
 	  "pan": "true",
