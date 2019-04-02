@@ -1,5 +1,5 @@
 {
-  "name": "nativescript-themes-scss",
+  "name": "nativescript-themes",
   "version": "2.0.0",
   "description": "A NativeScript plugin to deal with Themes in the Declarative UI ",
   "main": "themes.js",

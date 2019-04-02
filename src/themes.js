@@ -43,7 +43,6 @@ Themes.prototype.getAppliedTheme = function(defaultTheme) {
 
 Themes.prototype.applyTheme = function(cssFile, options) {
     if (!cssFile) {
-        console.log('No Theme css file provided');
         return;
     }
     if (!application.hasLaunched()) {
@@ -90,15 +89,15 @@ function internalLoadCssFile(cssFile, path) {
         cssFileName = fs.path.join(path, cssFileName);
     }
 
-    var textCSS = '';
+    var textCss = '';
 
     // Load the new Selectors
     if (cssFileName && FSA.fileExists(cssFileName)) {
         var file = fs.File.fromPath(cssFileName);
-        textCSS = file.readTextSync();
+        textCss = file.readTextSync();
     }
 
-    internalLoadCss(textCSS, cssFileName);
+    internalLoadCss(textCss, cssFileName);
 }
 
 function internalLoadCss(textCss, cssFileName) {
@@ -112,9 +111,9 @@ function internalLoadCss(textCss, cssFileName) {
     // Remove old Selectors
     var changed = StyleScope.removeTaggedAdditionalCSS(_priorTheme);
 
-    if (textCSS) {
+    if (textCss) {
         // Add new Selectors
-        StyleScope.addTaggedAdditionalCSS(textCSS, cssFileName);
+        StyleScope.addTaggedAdditionalCSS(textCss, cssFileName);
 
         changed = true;
         _priorTheme = cssFileName;
