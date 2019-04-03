@@ -1,5 +1,5 @@
 /**********************************************************************************
- * (c) 2016-2018, Master Technology
+ * (c) 2016-2019, Master Technology
  * Licensed under the MIT license or contact me for a Support or Commercial License
  *
  * I do contract work in most languages, so let me solve your problems!

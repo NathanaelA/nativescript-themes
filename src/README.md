@@ -10,18 +10,14 @@ A NativeScript plugin to deal with dynamically loading UI Themes
 
 tns plugin add nativescript-themes@1.1.0
 
-### NativeScript 4.x
+### NativeScript 5.x
 
 tns plugin add nativescript-themes
 
-## Status: BROKEN in NS 3 & 4
+## Status: 
 
-Please note this plugin is currently broken do to some new issues in the actual NativeScript core modules. Until they fix either:
+This plugin works in NativeScript 2.x and 5.x.   It does NOT work in v3 or v4.
 
--   [https://github.com/NativeScript/NativeScript/issues/5912](https://github.com/NativeScript/NativeScript/issues/5912)
--   [https://github.com/NativeScript/NativeScript/issues/5911](https://github.com/NativeScript/NativeScript/issues/5911)
-
-This plugin will be unable to work.... Please up vote those issues if you want to see this plugin work again...
 
 ## License
 
@@ -127,3 +123,9 @@ themes.applyThemeCss('page {background-color: black;}', 'default-theme.css');
 Need some extra help getting started? Check out these tutorials for dealing with NativeScript UI themes in an iOS and Android application.
 
 -   [Changing the UI Theme in a NativeScript Angular Application](https://www.thepolyglotdeveloper.com/2016/11/changing-a-nativescript-css-skin-at-runtime/)
+
+
+## Contributors:
+
+- Brad Martin
+- Tiago Alves
