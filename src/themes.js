@@ -123,14 +123,14 @@ function internalLoadCss(textCss, cssFileName) {
 	}
 
 	if (changed) {
-		const frame = frameCommon.topmost();
-		if (frame) {
-			if (frame._styleScope) {
-				frame._styleScope._localCssSelectorVersion++;
-				frame._styleScope.ensureSelectors();
-				frame._onCssStateChange();
+		const rootView = application.getRootView();
+		if (rootView) {
+			if (rootView._styleScope) {
+				rootView._styleScope._localCssSelectorVersion++;
+				rootView._styleScope.ensureSelectors();
+				rootView._onCssStateChange();
 			}
-			const backStack = frame.backStack;
+			const backStack = rootView.backStack;
 			if (backStack) {
 				for (let i = 0; i < backStack.length; i++) {
 					const page = backStack[i].resolvedPage;
@@ -142,7 +142,8 @@ function internalLoadCss(textCss, cssFileName) {
 				}
 			}
 
-			const page = frame.currentPage;
+			const frame = frameCommon.topmost();
+			const page = frame && frame.currentPage;
 			if (page) {
 				page._onCssStateChange();
 			}
