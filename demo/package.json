@@ -2,7 +2,7 @@
 	"nativescript": {
 		"id": "org.nativescript.tp",
 		"tns-android": {
-			"version": "5.3.0"
+			"version": "5.4.0"
 		}
 	},
 	"description": "NativeScript Application",
@@ -10,8 +10,8 @@
 	"repository": "<fill-your-repository-here>",
 	"dependencies": {
 		"nativescript-theme-core": "~1.0.4",
-		"tns-core-modules": "~5.3.1",
-		"nativescript-themes": "file:../src"
+		"nativescript-themes": "file:../src",
+		"tns-core-modules": "^5.4.0"
 	},
 	"devDependencies": {
 		"nativescript-dev-webpack": "~0.21.0"
