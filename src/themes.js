@@ -69,8 +69,8 @@ Themes.prototype.applyTheme = function(cssFile, options) {
 	}
 };
 
-Themes.prototype.applyThemeCss = function(textCss, cssFileName) {
-	internalLoadCss(textCss, cssFileName);
+Themes.prototype.applyThemeCss = function(textCss, cssFileName, oldFileName) {
+	internalLoadCss(textCss, cssFileName, oldFileName);
 };
 
 /**
@@ -103,16 +103,16 @@ function internalLoadCssFile(cssFile, path) {
 	internalLoadCss(textCss, cssFileName);
 }
 
-function internalLoadCss(textCss, cssFileName) {
+function internalLoadCss(textCss, cssFileName, oldFileName) {
 	if (!frameCommon.topmost()) {
 		setTimeout(function() {
-			internalLoadCss(textCss, cssFileName);
+			internalLoadCss(textCss, cssFileName, oldFileName);
 		}, 50);
 		return;
 	}
 
 	// Remove old Selectors
-	let changed = StyleScope.removeTaggedAdditionalCSS(_priorTheme);
+	let changed = StyleScope.removeTaggedAdditionalCSS(oldFileName || _priorTheme);
 
 	if (textCss) {
 		// Add new Selectors
