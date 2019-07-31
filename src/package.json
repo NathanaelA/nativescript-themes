@@ -1,6 +1,6 @@
 {
 	"name": "nativescript-themes",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"description": "A NativeScript plugin to deal with Themes in the Declarative UI.",
 	"main": "themes.js",
 	"nativescript": {
@@ -17,7 +17,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/nathanaela/nativescript-themes.git"
+		"url": "https://git.proplugins.org/proplugins/nativescript-themes.git"
 	},
 	"keywords": [
 		"NativeScript",
@@ -46,13 +46,16 @@
 	],
 	"license": {
 		"type": "MIT",
-		"url": "https://github.com/nathanaela/nativescript-themes/blob/master/LICENSE"
+		"url": "https://git.proplugins.org/proplugins/nativescript-themes/blob/master/LICENSE"
 	},
 	"bugs": {
-		"url": "https://github.com/nathanaela/nativescript-themes/issues"
+		"url": "https://git.proplugins.org/proplugins/nativescript-themes/issues"
 	},
-	"homepage": "https://github.com/nathanaela/nativescript-themes",
+	"homepage": "https://git.proplugins.org/proplugins/nativescript-themes",
 	"readmeFilename": "README.md",
+	"scripts": {
+		"postinstall": "node postinstall.js || echo \"ignore\""
+	},
 	"devDependencies": {
 		"prettier": "~1.16.4",
 		"tns-core-modules": "~5.3.1",
